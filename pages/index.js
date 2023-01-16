@@ -7,6 +7,10 @@ export default function Home() {
     email: "yeitoriqul@gmail.com",
     password: "12345678910",
   };
+  const formData2 = {
+    email: "yeitoriqul@gmail.com",
+    password: "12345678910",
+  };
 
   const signUp = async () => {
     const res = await fetch("/api/signup", {
@@ -20,10 +24,25 @@ export default function Home() {
     console.log(data);
   };
 
+  // login
+  const login = async () => {
+    // fetch user
+    const res = await fetch("/api/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData2),
+    });
+    const data = await res.json();
+    console.log(data);
+  };
+
   return (
     <div>
       <h1>Setup Ready</h1>
       <button onClick={signUp}>Signup</button>
+      <button onClick={login}>LogIn</button>
     </div>
   );
 }
