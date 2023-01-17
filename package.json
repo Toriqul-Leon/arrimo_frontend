@@ -1,5 +1,5 @@
 {
-  "name": "arrimo_frontend",
+  "name": "arrimo_frontend_challenge",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "antd": "^5.1.5",
     "bcrypt": "^5.1.0",
+    "modal-rt": "^0.9.0",
     "mongoose": "^6.8.3",
     "next": "13.1.2",
     "next-auth": "^4.18.8",

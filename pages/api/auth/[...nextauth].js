@@ -2,6 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import NextAuth from "next-auth";
 
 export const authOptions = {
+  secret: process.env.AUTH_SECRET,
 
   providers: [
     CredentialsProvider({
@@ -19,7 +20,7 @@ export const authOptions = {
       },
       async authorize(credentials, req) {
         const { email, password } = credentials;
-        const res = await fetch("http://localhost:3000/api/signin", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/signin`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

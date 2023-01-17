@@ -1452,7 +1452,7 @@ cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-csstype@^3.0.10:
+csstype@^3.0.10, csstype@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.1.tgz#841b532c45c758ee546a11d5bd7b7b473c8c30b9"
   integrity sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==
@@ -2112,6 +2112,16 @@ globrex@^0.1.2:
   resolved "https://registry.yarnpkg.com/globrex/-/globrex-0.1.2.tgz#dd5d9ec826232730cd6793a5e33a9302985e6098"
   integrity sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==
 
+goober-autoprefixer@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/goober-autoprefixer/-/goober-autoprefixer-1.2.3.tgz#72333478ddc8e0eab37f5d23e299c88c2f83c81d"
+  integrity sha512-89n8rlTrprAGewDnStDt5J9N0PBnyhYJReI0J/220ApeSJ8ufHJ64K2ycZCtI5X7u/JVlySyo1A2NL74HYmcBw==
+
+goober@^2.1.11:
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.11.tgz#bbd71f90d2df725397340f808dbe7acc3118e610"
+  integrity sha512-5SS2lmxbhqH0u9ABEWq7WPU69a4i2pYcHeCxqaNq6Cw3mnrF0ghWNM4tEGid4dKy8XNIAUbuThuozDHHKJVh3A==
+
 gopd@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/gopd/-/gopd-1.0.1.tgz#29ff76de69dac7489b7c0918a5788e56477c332c"
@@ -2583,6 +2593,15 @@ mkdirp@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+
+modal-rt@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/modal-rt/-/modal-rt-0.9.0.tgz#167a7d9b6b0212b2229f917e4cf3734f47c025ac"
+  integrity sha512-BBcpKZLz+s9rBGctD2dzHUwMXXIuB+91P7YD6h+EM1q9BKz5Wc5k9pFvVH0xaGTkiBCtcuaiRJU8jafq02gnWg==
+  dependencies:
+    csstype "^3.1.1"
+    goober "^2.1.11"
+    goober-autoprefixer "^1.2.3"
 
 mongodb-connection-string-url@^2.5.4:
   version "2.6.0"

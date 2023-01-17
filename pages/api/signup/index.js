@@ -1,5 +1,6 @@
-import dbConnect from "../../db/connect";
-import User from "../../db/models/UserModel";
+import dbConnect from "../../../db/connect";
+import User from "../../../db/models/UserModel";
+
 import { hash } from "bcrypt";
 
 
@@ -25,7 +26,7 @@ export default async function handler(req, res) {
     } catch (error) {
         res.json({
             success: false,
-            message: error.message,
+            message: "User with this email already exists",
         })
     }
 

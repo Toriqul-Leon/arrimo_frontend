@@ -1,5 +1,5 @@
-import dbConnect from "../../db/connect";
-import User from "../../db/models/UserModel";
+import dbConnect from "../../../db/connect";
+import User from "../../../db/models/UserModel";
 import bcrypt from "bcrypt";
 
 
