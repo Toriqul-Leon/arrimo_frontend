@@ -1,0 +1,12 @@
+.card {
+  height: 93.5vh;
+  width: 715px;
+  background-color: #fff;
+}
+.cardHeader {
+  display: flex;
+  color: black;
+  justify-content: space-around;
+  padding: 15px;
+  align-items: center;
+}

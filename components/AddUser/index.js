@@ -1,15 +1,15 @@
 import { Button, Form, Input } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import {useContext} from 'react';
-import { GlobalContext } from '../../context/GlobalContext';
+import { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
 import styles from "../SignUp/SignUp.module.css";
 
 export default function AddUser({ toggle }) {
-    const { addUser } = useContext(GlobalContext);
+  const { addUser } = useContext(GlobalContext);
   // signup
   const signUp = async (values) => {
-    if(values.password !== values.confirm_password) {
-        return alert("Password does not match")
+    if (values.password !== values.confirm_password) {
+      return alert("Password does not match");
     }
     const res = await fetch("/api/signup", {
       method: "POST",
@@ -24,14 +24,13 @@ export default function AddUser({ toggle }) {
     });
     const data = await res.json();
 
-    if(data.success) {
-        addUser(data.user)
-        toggle();
+    if (data.success) {
+      addUser(data.user);
+      toggle();
     } else {
-        alert(data.message)
+      alert(data.message);
     }
   };
-
 
   return (
     <section>
@@ -45,7 +44,6 @@ export default function AddUser({ toggle }) {
             }}
             onFinish={signUp}
           >
-
             <Form.Item
               name="email"
               rules={[
@@ -64,22 +62,20 @@ export default function AddUser({ toggle }) {
             </Form.Item>
 
             <Form.Item
-                name="name"
-                rules={[
-                    {
-                    required: true,
-                    message: "Your Full Name!",
-                    },
-                ]}
-                >
-                <Input
-                    className={styles.input}
-                    prefix={<UserOutlined className="site-form-item-icon" />}
-                    placeholder="Name"
-                />
+              name="name"
+              rules={[
+                {
+                  required: true,
+                  message: "Your Full Name!",
+                },
+              ]}
+            >
+              <Input
+                className={styles.input}
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                placeholder="Name"
+              />
             </Form.Item>
-
-            
 
             <Form.Item
               name="password"
@@ -99,20 +95,20 @@ export default function AddUser({ toggle }) {
             </Form.Item>
 
             <Form.Item
-                name="confirm_password"
-                rules={[
-                    {
-                    required: true,
-                    message: "Confirm your Password!",
-                    },
-                ]}
-                >
-                <Input
-                    className={styles.input}
-                    prefix={<LockOutlined className="site-form-item-icon" />}
-                    type="password"
-                    placeholder="Confirm Password"
-                />
+              name="confirm_password"
+              rules={[
+                {
+                  required: true,
+                  message: "Confirm your Password!",
+                },
+              ]}
+            >
+              <Input
+                className={styles.input}
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                type="password"
+                placeholder="Confirm Password"
+              />
             </Form.Item>
 
             <Form.Item>
