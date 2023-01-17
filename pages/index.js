@@ -19,7 +19,6 @@ export default function Home() {
       <div>
         <Button onClick={() => signOut()}>Sign out</Button>
         <h1>Home</h1>
-        
       </div>
     );
   }

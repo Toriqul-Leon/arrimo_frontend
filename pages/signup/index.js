@@ -4,6 +4,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
@@ -33,6 +34,17 @@ export default function Home() {
       alert("Email already exists");
     }
   };
+
+  // fecth users
+  const fetchUsers = async () => {
+    const res = await fetch("/api/users");
+    const data = await res.json();
+    console.log("hello", data);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
     <div>
