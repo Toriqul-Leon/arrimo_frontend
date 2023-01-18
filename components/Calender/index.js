@@ -19,7 +19,7 @@ const Calender = () => {
     const title = prompt("Please enter a new title for your event");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
-    console.log(title);
+
     if (title) {
       calendarApi.addEvent({
         id: `${selected.dateStr}-${title}`,
@@ -52,11 +52,13 @@ const Calender = () => {
             return (
               <div key={event.id}>
                 <p className={styles.listItem}>{event.title}</p>
-                {formatDate(event.start, {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
+                <p className={styles.footerText}>
+                  {formatDate(event.start, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </p>
               </div>
             );
           })}

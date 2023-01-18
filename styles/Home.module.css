@@ -1,0 +1,11 @@
+.row {
+  margin-top: 4rem;
+  margin-left: 8rem;
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    margin-top: 7rem;
+    margin-left: 0rem;
+  }
+}

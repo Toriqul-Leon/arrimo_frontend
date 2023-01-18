@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 import AppReducer from "./AppReducer";
 
 const initialState = {
@@ -10,6 +10,10 @@ export const GlobalContext = createContext(initialState);
 
 export default function GlobalContextProvider({ children }) {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
+  useEffect(() => {
+    state.display = localStorage.getItem("display");
+  }, []);
 
   function addUser(user) {
     dispatch({

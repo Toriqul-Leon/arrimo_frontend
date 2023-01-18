@@ -29,7 +29,7 @@ export default function Home() {
 
         <SideNav />
 
-        <Row style={{ marginLeft: "8rem", marginTop: "4rem" }}>
+        <Row className={styles.row}>
           {display === "users" ? (
             <Col xs={24} xl={24}>
               <Users />
