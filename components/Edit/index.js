@@ -48,7 +48,6 @@ export default function Edit({ user, editToggle }) {
     <section>
       <article>
         <div>
-          <h1>Welcome</h1>
           <Form
             name="normal_login"
             initialValues={{

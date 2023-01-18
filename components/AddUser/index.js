@@ -36,7 +36,6 @@ export default function AddUser({ toggle }) {
     <section>
       <article>
         <div>
-          <h1>Welcome</h1>
           <Form
             name="normal_signup"
             initialValues={{

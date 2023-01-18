@@ -5,8 +5,8 @@ import styles from "./SignUp.module.css";
 export default function SignUp({ setShow }) {
   // signup
   const signUp = async (values) => {
-    if(values.password !== values.confirm_password) {
-        return alert("Password does not match")
+    if (values.password !== values.confirm_password) {
+      return alert("Password does not match");
     }
     const res = await fetch("/api/signup", {
       method: "POST",
@@ -20,19 +20,18 @@ export default function SignUp({ setShow }) {
       }),
     });
     const data = await res.json();
-    if(data.success) {
-        setShow("signin")
+    if (data.success) {
+      setShow("signin");
     } else {
-        alert(data.message)
+      alert(data.message);
     }
   };
-
 
   return (
     <section className={styles.signInForm}>
       <article className={styles.signInCard}>
         <div>
-          <h1>Welcome</h1>
+          <h1>Register</h1>
           <Form
             name="normal_signup"
             initialValues={{
@@ -40,7 +39,6 @@ export default function SignUp({ setShow }) {
             }}
             onFinish={signUp}
           >
-
             <Form.Item
               name="email"
               rules={[
@@ -57,25 +55,21 @@ export default function SignUp({ setShow }) {
                 status="error"
               />
             </Form.Item>
-
             <Form.Item
-                name="name"
-                rules={[
-                    {
-                    required: true,
-                    message: "Your Full Name!",
-                    },
-                ]}
-                >
-                <Input
-                    className={styles.input}
-                    prefix={<UserOutlined className="site-form-item-icon" />}
-                    placeholder="Name"
-                />
+              name="name"
+              rules={[
+                {
+                  required: true,
+                  message: "Your Full Name!",
+                },
+              ]}
+            >
+              <Input
+                className={styles.input}
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                placeholder="Name"
+              />
             </Form.Item>
-
-            
-
             <Form.Item
               name="password"
               rules={[
@@ -92,24 +86,22 @@ export default function SignUp({ setShow }) {
                 placeholder="Password"
               />
             </Form.Item>
-
             <Form.Item
-                name="confirm_password"
-                rules={[
-                    {
-                    required: true,
-                    message: "Confirm your Password!",
-                    },
-                ]}
-                >
-                <Input
-                    className={styles.input}
-                    prefix={<LockOutlined className="site-form-item-icon" />}
-                    type="password"
-                    placeholder="Confirm Password"
-                />
+              name="confirm_password"
+              rules={[
+                {
+                  required: true,
+                  message: "Confirm your Password!",
+                },
+              ]}
+            >
+              <Input
+                className={styles.input}
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                type="password"
+                placeholder="Confirm Password"
+              />
             </Form.Item>
-
             <Form.Item>
               <Button
                 type="primary"
@@ -120,7 +112,10 @@ export default function SignUp({ setShow }) {
               </Button>
             </Form.Item>
             Or{" "}
-            <div onClick={() => setShow("signin")} className={styles.registerNow}>
+            <div
+              onClick={() => setShow("signin")}
+              className={styles.registerNow}
+            >
               Log In
             </div>
           </Form>

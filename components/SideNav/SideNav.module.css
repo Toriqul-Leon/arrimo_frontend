@@ -1,0 +1,36 @@
+.nav {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  height: 100vh;
+  width: 127.5px;
+  background-color: #3c6255;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+}
+
+.navItem:hover {
+  background-color: #fff;
+  color: #3c6255;
+  border-radius: 5px;
+}
+
+.navItem.active {
+  background-color: #fff;
+  color: #3c6255;
+  border-radius: 5px;
+}
