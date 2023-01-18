@@ -10,7 +10,7 @@ import AddUser from "../AddUser";
 import styles from "./Users.module.css";
 
 const count = 3;
-const apiUrl = `${process.env.NEXT_PUBLIC_URL}/api/users`;
+const apiUrl = `/api/users`;
 
 export default function Users() {
   const [initLoading, setInitLoading] = useState(true);
@@ -30,7 +30,7 @@ export default function Users() {
   }, []);
 
   const deleteUserById = async (id) => {
-    fetch(`${process.env.NEXT_PUBLIC_URL}/api/users/delete`, {
+    fetch(`/api/users/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

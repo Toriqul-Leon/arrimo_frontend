@@ -20,7 +20,7 @@ export const authOptions = {
       },
       async authorize(credentials, req) {
         const { email, password } = credentials;
-        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/signin`, {
+        const res = await fetch(`/api/signin`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -47,7 +47,6 @@ export const authOptions = {
       return { ...token, ...user };
     },
     async session({ session, token, user }) {
-
       session.user = token;
 
       return session;

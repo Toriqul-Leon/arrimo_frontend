@@ -1,7 +1,7 @@
 import { Button, Form, Input } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import {useContext} from 'react';
-import { GlobalContext } from '../../context/GlobalContext';
+import { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
 import styles from "./Edit.module.css";
 
 export default function Edit({ user, editToggle }) {
@@ -9,37 +9,36 @@ export default function Edit({ user, editToggle }) {
 
   // Sign In
   const editUserFunc = async (values) => {
-    if(!values.name && !values.email) {
-        return alert('Please fill in the form');
+    if (!values.name && !values.email) {
+      return alert("Please fill in the form");
     }
 
-    if(user.name === values.name) {
-        return alert('Please change your name');
+    if (user.name === values.name) {
+      return alert("Please change your name");
     }
 
-    if(user.email === values.email) {
-        return alert('Please change your email');
+    if (user.email === values.email) {
+      return alert("Please change your email");
     }
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/users/edit`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            name: values.name,
-            email: values.email,
-            id: user._id
-        }),
+    const response = await fetch(`/api/users/edit`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: values.name,
+        email: values.email,
+        id: user._id,
+      }),
     });
 
     const data = await response.json();
-    
-    if (data.success) {
-        editUser(data.user, user._id);
-        editToggle();
-    }
 
+    if (data.success) {
+      editUser(data.user, user._id);
+      editToggle();
+    }
   };
 
   return (
