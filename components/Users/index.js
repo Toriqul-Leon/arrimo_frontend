@@ -30,7 +30,7 @@ export default function Users() {
   }, []);
 
   const deleteUserById = async (id) => {
-    fetch(`/api/users/delete`, {
+    fetch(`${process.env.NEXT_PUBLIC_URL}/api/users/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

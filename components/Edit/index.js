@@ -21,17 +21,20 @@ export default function Edit({ user, editToggle }) {
       return alert("Please change your email");
     }
 
-    const response = await fetch(`/api/users/edit`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: values.name,
-        email: values.email,
-        id: user._id,
-      }),
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/api/users/edit`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          id: user._id,
+        }),
+      }
+    );
 
     const data = await response.json();
 
