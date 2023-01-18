@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -11,11 +11,15 @@ import { formatDate } from "@fullcalendar/core";
 const Calender = () => {
   const [currentEvents, setCurrentEvents] = useState([]);
 
+  useEffect(() => {
+    localStorage.setItem("events", JSON.stringify(currentEvents));
+  }, [currentEvents]);
+
   const handleDateClick = (selected) => {
     const title = prompt("Please enter a new title for your event");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
-
+    console.log(title);
     if (title) {
       calendarApi.addEvent({
         id: `${selected.dateStr}-${title}`,
@@ -56,6 +60,9 @@ const Calender = () => {
               </div>
             );
           })}
+          {currentEvents.length === 0 && (
+            <p className={styles.listItem}>No events</p>
+          )}
         </div>
         <div className={styles.calendar}>
           <FullCalendar
@@ -79,18 +86,7 @@ const Calender = () => {
             select={handleDateClick}
             eventClick={handleEventClick}
             eventsSet={(events) => setCurrentEvents(events)}
-            initialEvents={[
-              {
-                id: "12315",
-                title: "All-day event",
-                date: "2022-10-14",
-              },
-              {
-                id: "5123",
-                title: "Timed event",
-                date: "2022-10-28",
-              },
-            ]}
+            initialEvents={JSON.parse(localStorage.getItem("events"))}
           />
         </div>
       </div>
